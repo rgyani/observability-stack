@@ -102,4 +102,47 @@ Source [OpenSearch Documentation](https://opensearch.org/docs/latest/data-preppe
 * **FluentBit** can be used as a component for log collection and forwarding. Fluent Bit can be containerized through Kubernetes, Docker, or Amazon Elastic Container Service (Amazon ECS). You can also run Fluent Bit as an agent on Amazon Elastic Compute Cloud (Amazon EC2). Configure the Fluent Bit http output plugin to export log data to Data Prepper.
 * **Data Prepper** supports receiving logs from Fluent Bit through the HTTP Source and processing those logs with a Grok Processor before ingesting them into OpenSearch through the OpenSearch sink.
 
-* ![](imgs/data-prepper.jpg)
+![](imgs/data-prepper.jpg)
+
+
+### Loki
+Loki is a horizontally scalable, highly available, multi-tenant log aggregation system inspired by Prometheus. It is designed to be very cost-effective and easy to operate, as it does not index the contents of the logs, but rather a set of labels for each log stream.
+
+Here are some key features and aspects of Loki:
+* **Log Aggregation**: Loki is primarily used for log aggregation, allowing users to collect logs from various sources and store them centrally for analysis and monitoring.
+* **Labels-based Indexing**: Unlike traditional log management systems that index the entire content of each log entry, Loki indexes logs based on a set of labels. Labels are key-value pairs associated with each log entry that provide metadata about the log source, application, environment, etc. This approach significantly reduces storage requirements and allows for efficient querying.
+* **PromQL for Queries**: Loki uses PromQL (Prometheus Query Language), the same query language used by Prometheus, for querying log data. This allows users to leverage their existing knowledge of PromQL and Prometheus-style monitoring for log analysis.
+* **Distributed Architecture**: Loki is designed to be horizontally scalable and highly available. It consists of multiple components, including distributors, ingesters, queriers, and a storage backend. This distributed architecture enables Loki to handle large volumes of log data and provide reliable log storage and retrieval.
+* **Integration with** Grafana: Loki is commonly used in conjunction with Grafana, a popular open-source visualization and analytics platform. Grafana provides a user-friendly interface for querying and visualizing log data stored in Loki, allowing users to create dashboards and alerts based on log metrics.
+* **Cost-effective**: By indexing logs based on labels rather than their entire contents, Loki is more cost-effective than traditional log management systems, especially for organizations with large log volumes.
+
+Overall, Loki is a powerful and efficient solution for log aggregation and analysis, particularly well-suited for cloud-native environments and microservices architectures where logs are generated at scale. Its integration with Prometheus and Grafana makes it a compelling choice for organizations already using these tools for monitoring and observability.
+
+**Unlike Prometheus, which focuses on metrics, Loki is specialized in collecting and querying log data**
+
+### Grafana
+Grafana has emerged as one of the most popular open-source visualization and analytics platforms for time-series data. It provides users with the capability to query, visualize, alert on, and understand metrics no matter where they are stored. 
+
+One of Grafana's most powerful features is its extensibility through plugins. Grafana plugins enhance its functionality by adding new visualizations, data sources, authentication methods, and more. There are two main types of plugins in Grafana: panel plugins and data source plugins.
+
+1. **Panel Plugins**: Panel plugins add new visualization types to Grafana, allowing users to create more diverse and customized dashboards. Some popular panel plugins include:
+   * Graph Panel: The default panel type in Grafana for visualizing time-series data using line graphs, bar charts, area charts, and more.
+   * Pie Chart Panel: Allows users to create pie charts to visualize data distribution.
+   * Gauge Panel: Displays data in the form of gauges, such as speedometers or progress bars, to indicate a value within a range.
+
+2. **Data Source Plugins**: Data source plugins extend Grafana's capabilities by adding support for additional data sources beyond the built-in options. Simply speaking, datasource plugins periodically poll the database for new records and pass them to grafana for display.  
+These plugins allow users to connect Grafana to specialized data repositories or services. Some examples of data source plugins include:
+
+#### Data Sources in Grafana
+
+At the heart of Grafana's functionality lies its data sources. Data sources are responsible for providing the time-series data that Grafana visualizes. Grafana supports a wide range of data sources, including databases, cloud platforms, monitoring systems, and more. Some of the most commonly used data sources in Grafana include:
+* Prometheus: Prometheus is an open-source monitoring and alerting toolkit, widely used for monitoring containerized applications in Kubernetes environments but can also be used for general-purpose monitoring. 
+* Graphite: Graphite is another popular open-source monitoring tool used for storing and graphing time-series data.
+* InfluxDB: InfluxDB is a time-series database designed to handle high write and query loads.
+* Elasticsearch: Elasticsearch is a distributed search and analytics engine commonly used for log and event data analysis.
+* MySQL/PostgreSQL/Microsoft SQL Server: Grafana supports traditional relational databases like MySQL, PostgreSQL, and Microsoft SQL Server as data sources.
+* Cloudwatch: In addition to metrics, the CloudWatch data source plugin also supports querying and visualizing logs stored in CloudWatch Logs. Users can specify log groups and filters to retrieve log data and display it in Grafana dashboards alongside other metrics.
+
+All these datasources are available as Grafana Plugins
+
+https://grafana.com/grafana/plugins/
