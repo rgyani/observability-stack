@@ -24,7 +24,7 @@ The idea is to implicitly observe how a set of services interact with each other
 ### Implementing Tracing
 
 There are many standards and implementations of tracing. There are currently three widely-used standards: 
-1. Opentracing: The most widely used standard is Opentracing, started by CNCF. It supports plenty of programming languages. Meanwhile, it has already integrated with many widely used frameworks like spring, nginx and resttemplate.
+1. Opentracing: The most widely used standard is Opentracing, started by CNCF. It supports plenty of programming languages. It has integrations with many widely used frameworks like spring, nginx and resttemplate.
 2. Opencensus: Started by Google, it supports both tracing and metrics data. But compared with opentracing, it supports fewer frameworks and programming languages. 
 3. Opentelemetry: It not only combines pros of both opentracing and opencensus, but also avoids their cons. 
 
@@ -83,14 +83,14 @@ The ELK Stack began as a collection of three open-source products — Elasticsea
 
 * **Elasticsearch** is a full-text search and analysis engine, based on the Apache Lucene open source search engine. 
 * **Logstash** is a log aggregator that collects data from various input sources, executes different transformations and enhancements and then ships the data to various supported output destinations. It’s important to know that many modern implementations of ELK do not include Logstash. To replace its log processing capabilities, most turn to lightweight alternatives like Fluentd, which can also collect logs from data sources and forward them to Elasticsearch. 
-* **Kibana** is a visualization layer that works on top of Elasticsearch, providing users with the ability to analyze and visualize the data. And last but not least — Beats are lightweight agents that are installed on edge hosts to collect different types of data for forwarding into the stack.
+* **Kibana** is a visualization layer that works on top of Elasticsearch, providing users with the ability to analyze and visualize the data.
 * **Beats** refers to a family of lightweight data shippers or agents developed by Elastic. Beats are designed to efficiently collect, ship, and parse log data or metrics from various sources to Elasticsearch or Logstash for indexing and analysis.
 
 ![](imgs/elk.png)
 
 
 In early 2021, Elastic announced a bombshell in the open source world: [the ELK Stack would no longer be open source, as of version 7.11](https://logz.io/blog/open-source-elasticsearch-doubling-down/).   
-As, I Understand, they did this because they were concerned about other big companies, like Amazon Web Services (AWS), using their open source software without contributing much back to the community. They felt that this wasn't fair, as they were investing a lot of resources into developing and maintaining the software.
+As I Understand, they did this because they were concerned about other big companies, like Amazon Web Services (AWS), using their open source software without contributing much back to the community. They felt that this wasn't fair, as they were investing a lot of resources into developing and maintaining the software.
 In response, AWS created their own open-source version of Elasticsearch called OpenSearch (forked from ElasticSearch).
 
 ### OpenSearch Components
@@ -115,8 +115,6 @@ Here are some key features and aspects of Loki:
 * **Distributed Architecture**: Loki is designed to be horizontally scalable and highly available. It consists of multiple components, including distributors, ingesters, queriers, and a storage backend. This distributed architecture enables Loki to handle large volumes of log data and provide reliable log storage and retrieval.
 * **Integration with** Grafana: Loki is commonly used in conjunction with Grafana, a popular open-source visualization and analytics platform. Grafana provides a user-friendly interface for querying and visualizing log data stored in Loki, allowing users to create dashboards and alerts based on log metrics.
 * **Cost-effective**: By indexing logs based on labels rather than their entire contents, Loki is more cost-effective than traditional log management systems, especially for organizations with large log volumes.
-
-Overall, Loki is a powerful and efficient solution for log aggregation and analysis, particularly well-suited for cloud-native environments and microservices architectures where logs are generated at scale. Its integration with Prometheus and Grafana makes it a compelling choice for organizations already using these tools for monitoring and observability.
 
 **Unlike Prometheus, which focuses on metrics, Loki is specialized in collecting and querying log data**
 
