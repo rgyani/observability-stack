@@ -141,6 +141,11 @@ At the heart of Grafana's functionality lies its data sources. Data sources are 
 * MySQL/PostgreSQL/Microsoft SQL Server: Grafana supports traditional relational databases like MySQL, PostgreSQL, and Microsoft SQL Server as data sources.
 * Cloudwatch: In addition to metrics, the CloudWatch data source plugin also supports querying and visualizing logs stored in CloudWatch Logs. Users can specify log groups and filters to retrieve log data and display it in Grafana dashboards alongside other metrics.
 
-All these datasources are available as Grafana Plugins
 
-https://grafana.com/grafana/plugins/
+
+## More details...
+
+Obviously these are small pieces of the pie. More options can be found here
+![](imgs/GIFPqNCakAEc665.jpg)
+
+[Image Source](https://twitter.com/alexxubyte/status/1765780125998887247)
