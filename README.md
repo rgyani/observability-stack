@@ -43,7 +43,7 @@ Prometheus is the most commonly used metrics-based open source monitoring soluti
 
 For most use cases, you should understand three major components of Prometheus:
 
-1. The **Prometheus server** scrapes and stores metrics. Note that it uses a persistence layer, which is part of the server and not expressly mentioned in the documentation. Each node of the server is autonomous and does not rely on distributed storage. **So you will in most cases need a time-series database to store Prometheus data, rather than relying on the server itself**.
+1. The **Prometheus server** scrapes and stores metrics. Note that it uses a [persistence layer](https://prometheus.io/docs/prometheus/latest/storage/), which is part of the server. Each node of the server is autonomous and does not rely on distributed storage. **So you will in most cases need a time-series database to store Prometheus data, rather than relying on the server itself**.
 2. **The web UI** allows you to access, visualize, and chart the stored data. Prometheus provides its own UI, but **you can also configure other visualization tools, like Grafana**, to access the Prometheus server using PromQL (the Prometheus Query Language).
 3. **Alertmanager** sends alerts from client applications, especially the Prometheus server. It has advanced features for deduplicating, grouping, and routing alerts and **can route through other services like PagerDuty and OpsGenie.**
 
