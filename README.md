@@ -118,6 +118,8 @@ Here are some key features and aspects of Loki:
 
 **Unlike Prometheus, which focuses on metrics, Loki is specialized in collecting and querying log data**
 
+[Comparing Open Source Log Shippers : Logstash, FluentD and Fluent Bit](https://blog.onepane.ai/blog/open-source-log-shipping-stack/)
+
 ### Grafana
 Grafana has emerged as one of the most popular open-source visualization and analytics platforms for time-series data. It provides users with the capability to query, visualize, alert on, and understand metrics no matter where they are stored. 
 
